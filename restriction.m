@@ -54,6 +54,11 @@ classdef restriction
                             mask(j,:) = 0;
                         end
                     end
+                    xinds1 = round([1:x/5, 2*x/5:3*x/5, 4*x/5:x]);
+                    xinds2 = round([x/7:x/2-20, x/2+20:6*x/7]);
+                    mask(ymiddle-r/2-2:ymiddle-r/2+2, xinds1) = 0;
+                    mask(ymiddle-2:ymiddle+2, xinds2) = 0;
+                    mask(ymiddle+r/2-2:ymiddle+r/2+2, xinds1) = 0;
                 case 'Restricted - anisotropic2'
                     mask = ones(y,x);
                     ymiddle = y/2;
@@ -111,6 +116,11 @@ classdef restriction
                             end
                         end
                     end
+                    xinds1 = round([1:x/5, 2*x/5:3*x/5, 4*x/5:x]);
+                    xinds2 = round([x/7:x/2-20, x/2+20:6*x/7]);
+                    mask(ymiddle-r1/2-2:ymiddle-r1/2+2, xinds1) = 0;
+                    mask(ymiddle-2:ymiddle+2, xinds2) = 0;
+                    mask(ymiddle+r1/2-2:ymiddle+r1/2+2, xinds1) = 0;
             end
             % Set edges
 %             mask(:,1:2) = 1;
